@@ -8,11 +8,17 @@ const burger = (props) => {
     const arrOfIng = Object.keys(props.ingredients);
     console.log('Array of ingredients:', arrOfIng);
 
-    const ingredients = arrOfIng.map(ingKey => {
+    let ingredients = arrOfIng.map(ingKey => {
         return [...Array(props.ingredients[ingKey])].map((_, i) => {
             return <BurgerIngredient key={ingKey + i} type={ingKey} />
         })
-    })
+    }).reduce((arr, el) => [...arr, ...el])
+
+    console.log(ingredients)
+    if(ingredients.length === 0) {
+        ingredients = <p>Please start adding ingredients!</p>
+    }
+
     return (
         <div className={classes.Burger}>
             <BurgerIngredient type="bread-top"/>
