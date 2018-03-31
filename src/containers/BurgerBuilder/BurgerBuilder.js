@@ -78,7 +78,7 @@ class BurgerBuilder extends Component {
 
         for(let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] === 0;
-            console.log('disabledInfo[key]:',disabledInfo[key]);
+            console.log('disabledInfo[key] Button disabled!:',disabledInfo[key]);
         }
 
         return (
@@ -88,6 +88,7 @@ class BurgerBuilder extends Component {
                     ingredientAdded={this.addIngredientHandler}
                     ingredientRemoved={this.removeIngredientHandler}
                     disabled={disabledInfo}
+                    price={this.state.totalPrice}
                 />
             </Fragment>
         )
