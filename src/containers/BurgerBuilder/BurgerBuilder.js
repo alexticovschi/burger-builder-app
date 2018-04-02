@@ -34,6 +34,10 @@ class BurgerBuilder extends Component {
         this.setState({ purchasing: false })
     }
 
+    purchaseContinueHandler = () => {
+        alert('You continue!');
+    }
+
     updatePurchaseState = (ingredients) => {
         // convert ingredients obj into array, map over it and return the sum of ingredients
         const sum = Object.keys(ingredients)
@@ -102,12 +106,15 @@ class BurgerBuilder extends Component {
         for(let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] === 0;
             console.log('disabledInfo[key] Button disabled!:',disabledInfo[key]);
-        }
+        } 
 
         return (
             <Fragment>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
-                    <OrderSummary ingredients={this.state.ingredients}/>
+                    <OrderSummary 
+                        ingredients={this.state.ingredients}
+                        purchaseCancelled={this.purchaseCancelHandler}
+                        purchaseContinued={this.purchaseContinueHandler}/>
                 </Modal>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls 
