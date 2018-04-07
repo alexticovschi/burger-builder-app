@@ -5,6 +5,7 @@ import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../axios-orders';
 
 const INGREDIENT_PRICES = {
@@ -62,7 +63,7 @@ class BurgerBuilder extends Component {
             })
             .catch(error => {
                 // stop loading event if we get an error
-                setTimeout(() => {this.setState({ loading: false, purchasing: false })}, 1500);
+                this.setState({ loading: false, purchasing: false });
                 console.log(error);
             });
     }
@@ -164,4 +165,4 @@ class BurgerBuilder extends Component {
     }
 }
 
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder, axios);
