@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import Modal from '../../components/UI/Modal/Modal';
-import { isNull } from 'util';
 
 const withErrorHandler = (WrappedComponent, axios) => {
     return class extends Component {
         state = {
             error: null
         }
-        componentDidMount() {
+        componentWillMount() {
             axios.interceptors.request.use(req => {
                 this.setState({error: null});
                 return req;
