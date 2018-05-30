@@ -23,7 +23,7 @@ class ContactData extends Component {
         this.setState({ loading: true });
         const order = {
             ingredients: this.props.ingredients,
-            price: this.state.price,
+            price: this.props.price,
             customer: {
                 name: 'Sherlock Holmes',
                 address: {
@@ -40,7 +40,7 @@ class ContactData extends Component {
                 //console.log(response)
                 // once we get a response, set loading to false(stop loading)
                 // setTimeout(() => {this.setState({ loading: false })}, 1500);
-                this.setState({ loading: false })
+                this.setState({ loading: false });
                 this.props.history.push('/');
             })
             .catch(error => {

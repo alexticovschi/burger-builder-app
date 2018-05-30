@@ -16,7 +16,7 @@ class Checkout extends Component {
         let price = 0;
         for(let param of query.entries()) {
         // ['salad', 1]
-            // console.log(param);
+            console.log(param);
             if(param[0] === 'price') {
                 price = param[1];
             } else {
@@ -24,8 +24,8 @@ class Checkout extends Component {
             }
         }
         this.setState({
-           ingredients: ingredients, 
-           totalPrice: price
+           ingredients: ingredients,
+           totalPrice: price,
         });
     }
 
