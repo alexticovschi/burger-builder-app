@@ -11,10 +11,10 @@ const burger = (props) => {
     let ingredients = arrOfIng.map(ingKey => {
         return [...Array(props.ingredients[ingKey])].map((_, i) => {
             return <BurgerIngredient key={ingKey + i} type={ingKey} />
-        })
-    }).reduce((arr, el) => [...arr, ...el])
+        });
+    }).reduce((arr, el) => arr.concat(el), []);
 
-    console.log(ingredients)
+    console.log(ingredients);
     if(ingredients.length === 0) {
         ingredients = <p>Please start adding ingredients!</p>
     }
