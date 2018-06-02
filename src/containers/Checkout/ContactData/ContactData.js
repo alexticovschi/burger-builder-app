@@ -89,6 +89,15 @@ class ContactData extends Component {
 
     render () {
         const formElementsArray = [];
+        // for (let key in this.state.orderForm) {
+        //     formElementsArray.push(
+        //         <Input 
+        //             key={key}
+        //             elementType={this.state.orderForm[key].elementType}
+        //             elementConfig={this.state.orderForm[key].elementConfig}
+        //             value={this.state.orderForm[key].value} />
+        //     );
+        // }
         for (let key in this.state.orderForm) {
             formElementsArray.push({
                 id: key,
@@ -96,11 +105,11 @@ class ContactData extends Component {
             });
         }
 
-        console.log('formElemenmtsArray: ', formElementsArray);
+        console.log('formElementsArray: ', formElementsArray);
 
         let form = (
             <form>
-                {/* <Input elementType="..." elementConfig="..." value="..." /> */}
+                {/* {formElementsArray} */}
                 {formElementsArray.map(formElement => (
                     <Input 
                         key={formElement.id}
