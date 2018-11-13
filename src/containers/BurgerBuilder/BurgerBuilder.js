@@ -17,7 +17,7 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
+        // console.log(this.props);
         this.props.onInitIngredient();
     }
 
@@ -55,7 +55,7 @@ class BurgerBuilder extends Component {
 
         for(let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] === 0;
-            console.log('disabledInfo[key] Button disabled!:',disabledInfo[key]);
+            // console.log('disabledInfo[key] Button disabled!:',disabledInfo[key]);
         } 
         let orderSummary = null;
         let burger = this.props.error ? <p style={{textAlign:'center'}}>Ingredients can't be loaded!</p> : <Spinner/>

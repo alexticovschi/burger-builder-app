@@ -101,7 +101,7 @@ export class Auth extends Component {
         this.setState(prevState => {
             return { isSignup: !prevState.isSignup };
         });
-        console.log('[IS SIGNUP?]:',this.state.isSignup)
+        // console.log('[IS SIGNUP?]:',this.state.isSignup)
     }
 
     render() {
